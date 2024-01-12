@@ -6,6 +6,9 @@
 // Date:        2021-11-01
 // Description: Main algorithm.
 // This file is part of my thesis for my Master of Engineer in Information Technolgy.
+// Thesis available in Spanish at https://repositorio.uade.edu.ar/xmlui/handle/123456789/13847
+// Based on the original code by Jian Guo, Thomas Peyrin and Axel Poschmann.
+// https://link.springer.com/chapter/10.1007/978-3-642-22792-9_13
 //-----------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
