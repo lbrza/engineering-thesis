@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------------
 // Quark lightweight hash function - C# implementation.
 // 
-// File:        Program.cs
+// File:        Quark.cs
 // Author:      Leandro Beraza
 // Date:        2021-11-01
-// Description: Main driver program.
+// Description: Algorithm file.
 // This file is part of my thesis for my Computer Engineering degree at UADE (Bachelor and Master according to wes.org).
 // Thesis available in Spanish at https://repositorio.uade.edu.ar/xmlui/handle/123456789/13847
 // Based on the original specification by Jean-Philippe Aumasson, Luca Henzen, Willi Meier & María Naya-Plasencia.
