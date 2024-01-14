@@ -7,7 +7,9 @@
 // Description: Main driver program.
 // This file is part of my thesis for my Computer Engineering degree at UADE (Bachelor and Master according to wes.org).
 // Thesis available in Spanish at https://repositorio.uade.edu.ar/xmlui/handle/123456789/13847
-// Based on the original code by Andrey Bogdanov, Miroslav Knežević, Gregor Leander, Deniz Toz, Kerem Varıcı & Ingrid Verbauwhede.
+// Based on the size-optimized Spongent hashing algorithm for ATtiny45 by Wouter de Groot.
+// https://github.com/weedegee/spongent-avr
+// Based on the original specification by Andrey Bogdanov, Miroslav Knežević, Gregor Leander, Deniz Toz, Kerem Varıcı & Ingrid Verbauwhede.
 // https://link.springer.com/chapter/10.1007/978-3-642-23951-9_21
 //-----------------------------------------------------------------------------------
 using System;
