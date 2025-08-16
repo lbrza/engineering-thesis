@@ -16,12 +16,6 @@ Keywords: Lightweight Cryptography; IoT; Cyberphysical systems; lightweight hash
 
 This repository contains the C# implementations of three lightweight cryptographic hash functions—Photon, Quark, and Spongent—as part of a Computer Engineering thesis. The project also includes a profiler to benchmark the performance of these algorithms on both high-performance and resource-constrained IoT devices.
 
-**Table of Contents**
-
-[TOCM]
-
-[TOC]
-
 ## 📜 Summary
 
 The Internet of Things (IoT) consists of resource-scarce devices that require specialized, lightweight cryptography for security. This project focuses on lightweight hash functions, which process messages of arbitrary length to produce a fixed-length, pseudo-random output. The core challenge is to create a function that is easy to compute but difficult to reverse, while minimizing the risk of collisions.
@@ -65,6 +59,7 @@ To compile and run each hash function individually, navigate to its respective d
 Example for Photon:
 
 `cd Photon/`
+
 `dotnet run`
 
 This will execute the Main function in Program.cs, which will hash a sample message and print the resulting digest to the console.
@@ -117,6 +112,7 @@ Follow the official Microsoft documentation to install the .NET Core SDK for you
 On your development machine, publish the project for the target runtime. For example, to publish the profiler for a 64-bit ARM Linux system:
 
 `$ cd Profiler/`
+
 `$ dotnet publish -c Release -r linux-arm64`
 
 This will create a self-contained application in the `bin/Release/netcoreapp2.1/linux-arm64/publish/` directory.
@@ -126,5 +122,6 @@ Copy the contents of the publish directory to your Raspberry Pi. You can use too
 
 ##### On the Raspberry Pi
 `$ chmod +x Profiler # Or the name of your main executable`
+
 `$ ./Profiler`
 
