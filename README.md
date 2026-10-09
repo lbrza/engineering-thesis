@@ -28,6 +28,44 @@ Three sponge-construction-based algorithms were selected for this study:
 
 The C# implementations were evaluated on a high-performance desktop and a Raspberry Pi 3 Model B+. The performance metrics included processing time, instruction count, and memory consumption. The results confirmed the initial hypothesis that Photon is the most efficient of the three algorithms, demonstrating superior performance in execution time and memory usage, especially on the resource-constrained Raspberry Pi.
 
+## 📊 Results
+ 
+Measured on a **Raspberry Pi 3 Model B+** (64-bit ARMv8 at 1.4 GHz, 1 GB RAM) running Ubuntu Server 20.04.3 LTS (64-bit), with each profiler published as a self-contained .NET Core 2.1 app and run at maximum priority (`sudo nice -n -20`). Each algorithm uses its lightest configuration: PHOTON-80/20/16, U-QUARK and SPONGENT-88/80/8. Inputs are randomly generated strings, each length is hashed repeatedly, and the time is averaged per hash; the number of repetitions was reduced for longer inputs.
+ 
+### Average time per hash
+ 
+| Input length (chars) | Photon | Quark | Spongent |
+| ---: | ---: | ---: | ---: |
+| 0 | 1.18 ms | 7.36 ms | n/a* |
+| 1 | 1.10 ms | 7.09 ms | 6.29 ms |
+| 10 | 1.97 ms | 10.66 ms | 8.95 ms |
+| 100 | 9.84 ms | 46.09 ms | 42.45 ms |
+| 1,000 | 88.5 ms | 400.7 ms | 377.4 ms |
+| 10,000 | 0.88 s | 4.69 s | 3.56 s |
+| 100,000 | 8.75 s | 46.81 s | 70.88 s |
+| 1,000,000 | 87.49 s | 467.55 s | 708.81 s |
+ 
+\* This Spongent implementation returns no digest for an empty message.
+ 
+Compared with the same code on a desktop (Intel Core i7-9750H, Windows 10), the Raspberry Pi was about 5.4× slower for Photon, 19× slower for Quark and 5× slower for Spongent. Time grows linearly with input length for all three.
+ 
+### Code size and memory
+ 
+| | Photon | Quark | Spongent |
+| --- | ---: | ---: | ---: |
+| Lines of C# (hash function core) | 219 | 169 | 102 |
+| Lines of IL (inspected with LINQPad 5) | 785 | 1,225 | 445 |
+| Compiled DLL size | 10.5 KB | 9 KB | 8 KB |
+| Heap during hashing (Windows, VS 2019 Diagnostic Tools) | 64.63–65.28 KB | 64.80–66.81 KB | 67.90–68.33 KB |
+ 
+### Findings
+ 
+- **Photon was the fastest at every input length** and used the least heap memory, making it the most efficient of the three in this implementation.
+- **Spongent had the smallest footprint** (fewest C# and IL lines, smallest binary) but was the slowest on long inputs.
+- **Quark's compact source hides the most complexity:** its 169 lines of C# compile to 1,225 lines of IL, the most of the three.
+- The first call to each function is about 0.5 ms slower than later calls because of JIT compilation, which explains the extra time on very short inputs.
+Full tables, the desktop measurements and the methodology are in the [thesis](https://repositorio.uade.edu.ar/handle/123456789/13847) (in Spanish).
+
 ## 🚀 Usage Guide
 
 This guide assumes you have the .NET Core SDK installed on your system. The implementations were developed using Visual Studio 2019 and .NET Core 2.1.
