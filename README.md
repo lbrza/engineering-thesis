@@ -1,6 +1,6 @@
 # Lightweight cryptography for Internet of Things devices
 
-Computer Engineering (Bachelor's and master's degree), Universidad Argentina de la Empresa - UADE. December 2021.
+Computer Engineering (master's degree), Universidad Argentina de la Empresa - UADE. December 2021.
 
 ## About the thesis
 
