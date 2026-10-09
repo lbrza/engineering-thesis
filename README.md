@@ -43,7 +43,6 @@ Measured on a **Raspberry Pi 3 Model B+** (64-bit ARMv8 at 1.4 GHz, 1 GB RAM) ru
 | 1,000 | 88.5 ms | 400.7 ms | 377.4 ms |
 | 10,000 | 0.88 s | 4.69 s | 3.56 s |
 | 100,000 | 8.75 s | 46.81 s | 70.88 s |
-| 1,000,000 | 87.49 s | 467.55 s | 708.81 s |
  
 \* This Spongent implementation returns no digest for an empty message.
  
